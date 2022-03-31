@@ -15,7 +15,7 @@
     "part": "xczu7ev-ffvc1156-2-e",
     "tcl_scripts": { "axi_stream": "axi_stream_design.tcl"},
     "python_drivers": {"axi_stream":  "axi_stream_driver.py"},
-    "trigger_file": { "axi_stream": "axi_stream_trigger.xdc"},
+    "xdc_file": { "axi_stream": "axi_stream_zcu104.xdc"},
     "c_drivers": {}
   } 
 }

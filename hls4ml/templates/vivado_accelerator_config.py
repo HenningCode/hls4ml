@@ -144,7 +144,7 @@ class VivadoAcceleratorConfig(object):
 
     def get_xdc_file_path(self):
         board_info = self.get_board_info(self.board)
-        xdc_scripts = board_info.get('trigger_file', None)
+        xdc_scripts = board_info.get('xdc_file', None)
         if xdc_scripts is None:
             raise Exception('No tcl scripts definition available for the board in supported_board.json')
         xdc_scripts = xdc_scripts.get(self.interface, None)
