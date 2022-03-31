@@ -47,14 +47,8 @@ create_bd_cell -type ip -vlnv xilinx.com:hls:${myproject}_axi:1.0 ${myproject}_a
 endgroup
 
 startgroup
-current_bd_instance "design_1"
 create_bd_port -dir O -from 1 -to 0 LED
 endgroup
-
-set_property IOSTANDARD LVCMOS33 [get_ports {LED[0]}]
-set_property IOSTANDARD LVCMOS33 [get_ports {LED[1]}]
-set_property PACKAGE_PIN D5 [get_ports {LED[1]}]
-set_property PACKAGE_PIN G8 [get_ports {LED[0]}]
 
 connect_bd_intf_net [get_bd_intf_pins axi_dma_0/M_AXIS_MM2S] [get_bd_intf_pins ${myproject}_axi_0/in_r]
 connect_bd_intf_net [get_bd_intf_pins axi_dma_0/S_AXIS_S2MM] [get_bd_intf_pins ${myproject}_axi_0/out_r]
@@ -63,6 +57,8 @@ connect_bd_net -net zynq_ultra_ps_e_0_emio_gpio_o [get_bd_pins xlslice_0/Din] [g
 
 apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins ${myproject}_axi_0/ap_clk]
 group_bd_cells hier_0 [get_bd_cells axi_dma_0] [get_bd_cells ${myproject}_axi_0]
+
+read_xdc trigger.xdc
 
 make_wrapper -files [get_files ./${myproject}_vivado_accelerator/project_1.srcs/sources_1/bd/design_1/design_1.bd] -top
 
