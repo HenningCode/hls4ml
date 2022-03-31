@@ -9,6 +9,7 @@ set_property  ip_repo_paths  ${myproject}_prj [current_project]
 update_ip_catalog
 
 create_bd_design "design_1"
+current_bd_design "design_1"
 set_property  ip_repo_paths ${myproject}_prj/solution1/impl/ip [current_project]
 update_ip_catalog
 
@@ -46,8 +47,9 @@ create_bd_cell -type ip -vlnv xilinx.com:hls:${myproject}_axi:1.0 ${myproject}_a
 endgroup
 
 startgroup
-create_bd_port -dir O -from 1 -to 0 LED 
+create_bd_port -dir O -from 1 -to 0 LED [current_bd_design]
 endgroup
+
 set_property IOSTANDARD LVCMOS33 [get_ports {LED[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {LED[1]}]
 set_property PACKAGE_PIN D5 [get_ports {LED[1]}]
