@@ -39,7 +39,7 @@ endgroup
 startgroup
 create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 
 endgroup
-set_property -dict [list CONFIG.DIN_FROM {1} CONFIG.DIN_TO {0} CONFIG.DIN_WIDTH {16} CONFIG.DOUT_WIDTH {2}]
+set_property -dict [list CONFIG.DIN_FROM {1} CONFIG.DIN_TO {0} CONFIG.DIN_WIDTH {16} CONFIG.DOUT_WIDTH {2} ] [get_bd_cells xlslice_0]
 
 startgroup
 create_bd_cell -type ip -vlnv xilinx.com:hls:${myproject}_axi:1.0 ${myproject}_axi_0
