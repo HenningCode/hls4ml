@@ -141,3 +141,14 @@ class VivadoAcceleratorConfig(object):
         if tcl_script is None:
             raise Exception('No tcl script definition available for the desired interface in supported_board.json')
         return '../templates/vivado_accelerator/' + self.board + '/tcl_scripts/' + tcl_script
+
+    def get_xdc_file_path(self):
+        board_info = self.get_board_info(self.board)
+        xdc_scripts = board_info.get('trigger_file', None)
+        if xdc_scripts is None:
+            raise Exception('No tcl scripts definition available for the board in supported_board.json')
+        xdc_scripts = xdc_scripts.get(self.interface, None)
+        if xdc_scripts is None:
+            raise Exception('No tcl script definition available for the desired interface in supported_board.json')
+        return '../templates/vivado_accelerator/' + self.board + '/tcl_scripts/' + xdc_scripts
+

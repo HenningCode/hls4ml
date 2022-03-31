@@ -316,6 +316,8 @@ class VivadoAcceleratorWriter(VivadoWriter):
         filedir = os.path.dirname(os.path.abspath(__file__))
         copyfile(os.path.join(filedir, self.vivado_accelerator_config.get_tcl_file_path()),
                  '{}/design.tcl'.format(model.config.get_output_dir()))
+        copyfile(os.path.join(filedir, self.vivado_accelerator_config.get_xdc_file_path()),
+                 '{}/zcu104.xdc'.format(model.config.get_output_dir()))
         f = open('{}/project.tcl'.format(model.config.get_output_dir()), 'w')
         f.write('variable myproject\n')
         f.write('set myproject "{}"\n'.format(model.config.get_project_name()))

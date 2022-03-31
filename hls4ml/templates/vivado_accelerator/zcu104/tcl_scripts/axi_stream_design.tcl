@@ -58,7 +58,7 @@ connect_bd_net -net zynq_ultra_ps_e_0_emio_gpio_o [get_bd_pins xlslice_0/Din] [g
 apply_bd_automation -rule xilinx.com:bd_rule:clkrst -config { Clk {/zynq_ultra_ps_e_0/pl_clk0 (99 MHz)} Freq {100} Ref_Clk0 {} Ref_Clk1 {} Ref_Clk2 {}}  [get_bd_pins ${myproject}_axi_0/ap_clk]
 group_bd_cells hier_0 [get_bd_cells axi_dma_0] [get_bd_cells ${myproject}_axi_0]
 
-read_xdc trigger.xdc
+read_xdc zcu104.xdc
 
 make_wrapper -files [get_files ./${myproject}_vivado_accelerator/project_1.srcs/sources_1/bd/design_1/design_1.bd] -top
 
