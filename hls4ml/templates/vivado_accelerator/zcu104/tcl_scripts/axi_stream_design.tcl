@@ -45,8 +45,9 @@ startgroup
 create_bd_cell -type ip -vlnv xilinx.com:hls:${myproject}_axi:1.0 ${myproject}_axi_0
 endgroup
 
+startgroup
 create_bd_port -dir O -from 1 -to 0 LED 
-
+endgroup
 set_property IOSTANDARD LVCMOS33 [get_ports {LED[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {LED[1]}]
 set_property PACKAGE_PIN D5 [get_ports {LED[1]}]
