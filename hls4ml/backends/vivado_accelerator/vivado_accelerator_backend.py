@@ -24,7 +24,7 @@ class VivadoAcceleratorBackend(VivadoBackend):
 
         return parse_vivado_report(model.config.get_output_dir())
 
-    def create_initial_config(self, board='pynq-z2', part=None, clock_period=5, io_type='io_parallel', interface='axi_stream',
+    def create_initial_config(self, board='zcu104', part='xczu7ev-ffvc1156-2-e', clock_period=5, io_type='io_parallel', interface='axi_stream',
                               driver='python', input_type='float', output_type='float'):
         '''
         Create initial accelerator config with default parameters
