@@ -8,7 +8,7 @@ from hls4ml.model.layers import FixedPrecisionType, IntegerPrecisionType
 class VivadoAcceleratorConfig(object):
     def __init__(self, config, model_inputs, model_outputs):
         self.config = config.config
-        self.board = self.config.get('AcceleratorConfig', {}).get('Board', 'pynq-z2')
+        self.board = self.config.get('AcceleratorConfig', {}).get('Board', 'zcu104')
         self.supported_boards = json.load(open(os.path.dirname(__file__) + '/supported_boards.json'))
         if self.board in self.supported_boards.keys():
             board_info = self.supported_boards[self.board]
